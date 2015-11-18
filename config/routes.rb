@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   get 'register' => 'users#new'
   get 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new', :as => :login
-  match '/auth/:twitter/callback', :to => 'sessions#create'
-  match '/auth/failure', :to => 'sessions#failure'
+  get '/auth/:twitter/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
