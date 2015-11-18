@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RBulletin</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <% if flash.any?  %>
+      <div id="flash">
+        <% flash.each do |type, message| %>
+          <div class="<%= type %> ">
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% if current_user %>
+      Hello <%= current_user.username %>
+      <%= link_to 'Logout', logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %>
+      <%= link_to 'Register', register_path %>
+    <% end %>
+      <%= render partial:'crumbs' %>
+      <%= yield %>
+  </div>
+</body>
+</html>
