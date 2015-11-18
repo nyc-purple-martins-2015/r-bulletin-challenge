@@ -10,8 +10,8 @@
   <%= sort_link(@q, :name, %i(name),
   default_order: { name: 'asc'}) %>
 <% @results.each do |result| %>
-  <li><%= result.name %>
     <ul>
+  <li><%=link_to result.name, topic_path(result) %>
   <% result.conversations.each do |conv| %>
     <li><%= conv.name %></li>
   <% end %>
