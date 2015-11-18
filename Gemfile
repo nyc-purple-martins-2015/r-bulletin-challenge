@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-twitter'
+gem 'pry-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -32,6 +33,7 @@ gem 'omniauth-twitter'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'

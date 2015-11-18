@@ -12,8 +12,10 @@ class SessionsController < ApplicationController
       # Log him in or sign him up
       auth = Authorization.find_or_create(auth_hash)
       # Create the session
-      session[:user_id] = auth.user.id
-      render :text => "Welcome #{auth.user.username}!"
+# byebug
+      session[:user_id] = auth.uid
+      # render :text => "Welcome #{auth.user.username}!"
+      redirect_to root_path
     end
   end
 
