@@ -1,3 +1,25 @@
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name_or_conversations_name_or_conversations_messages_content_cont, "Search:" %>
+  <%= f.search_field :name_or_conversations_name_or_conversations_messages_content_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<ul>
+  <%= sort_link(@q, :name, %i(name),
+  default_order: { name: 'asc'}) %>
+<% @results.each do |result| %>
+  <li><%= result.name %>
+    <ul>
+  <% result.conversations.each do |conv| %>
+    <li><%= conv.name %></li>
+  <% end %>
+  </ul>
+  </li>
+<% end %>
+</ul>
+
 <h1>Topics</h1>
 <% @categories.each do |cat| %>
   <h2><%= cat.name %></h2>
@@ -8,6 +30,6 @@
     </tr>
     <%= render cat.topics %>
   </table>
-  
+
 <% end %>
 

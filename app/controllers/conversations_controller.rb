@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @conversations = @topic.conversations.order(updated_at: :desc)
   end
-  
+
   def show
     @conversation = Conversation.find(params[:id])
   end

@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
   def index
+    @q = Topic.ransack(params[:q])
+    @results = @q.result(distinct: true)
     @categories = Category.includes(:topics).order(:display_order)
   end
 
